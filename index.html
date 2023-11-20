@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JS Noise Machine</title>
+  <link rel="stylesheet" href="style-player.css">
+</head>
+<body>
+  <header>
+    <h1>Noise Machine</h1>
+    <p>Jam out to your own composition of silly sounds!</p>
+    <em>Another silly project from <a href="https://github.com/skimisphat" target="_blank">skimisphat</a></em>
+</header>
+
+  <div class="keys">
+    <button id="1" class="key red" >
+      
+      <span class="sound">Fart 1</span>
+    </button>
+    <button id="2" class="key orange" >
+      
+      <span class="sound">Fart 2</span>
+    </button>
+    <button id="3" class="key yellow" >
+      
+      <span class="sound">Fart 3</span>
+    </button>
+    <button id="4" class="key green">
+      
+      <span class="sound">Fart 4</span>
+    </button>
+    <button id="5" class="key blue">
+      
+      <span class="sound">Spooky 1</span>
+    </button>
+    <button id="6" class="key indigo">
+      
+      <span class="sound">Spooky 2</span>
+    </button>
+    <button id="7" class="key purple">
+      
+      <span class="sound">Spooky 3</span>
+    </button>
+    <button id="8" class="key pink">
+      
+      <span class="sound">Spooky 4</span>
+    </button>
+   <button id="9" class="key black">
+      <span class="sound">Dracula</span>
+    </button>
+  </div>
+
+  <audio id="1" src="sounds/fart1.wav"></audio>
+  <audio id="2" src="sounds/fart2.wav"></audio>
+  <audio id="3" src="sounds/fart3.wav"></audio>
+  <audio id="4" src="sounds/fart4.wav"></audio>
+  <audio id="5" src="sounds/rc1.mp3"></audio>
+  <audio id="6" src="sounds/rc2.mp3"></audio>
+  <audio id="7" src="sounds/rc3.mp3"></audio>
+  <audio id="8" src="sounds/rc4.mp3"></audio>
+  <audio id="9" src="sounds/dracula.wav"></audio>
+
+<script>
+
+  function playSound(e) { // console.log(e); - e is an object full of data about the event that happened
+    const key_id = e.target.id;
+    const audio = document.querySelector(`audio[id="${key_id}"]`); 
+    const key = document.querySelector(`.key[id="${key_id}"]`);
+    if (!audio) return; //stop the function from running altogether
+    //audio.currentTime = 0; // rewind to beginning on press, won't have to wait for the sound to finish anymore
+    audio.play();
+    key.classList.add('playing');
+    
+    
+  }
+
+  function removeTransition(e) {
+    if(e.propertyName !== 'transform') return; // skip it if it's not a transform event
+    this.classList.remove('playing');
+    console.log(e);
+  }
+
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition)); // have to add the event listener to all keys
+  console.log(keys);
+  window.addEventListener('click', playSound);
+
+</script>
+
+
+</body>
+</html>

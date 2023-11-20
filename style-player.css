@@ -1,0 +1,83 @@
+html {
+  font-size: 14px;
+  /**background: url(http://media.graytvinc.com/images/DRACULA.png) bottom center; Someday I'll find the right spooky background**/
+  background-size: cover;
+}
+body,html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow:  hidden;
+}
+
+header {
+  text-align: center;
+}
+
+.keys {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.key {
+  transition: all .07s ease;
+  float: left;
+  height: 15em;
+  margin: 2em;
+  width: 15em; /**this could be a much better calculation...**/
+  z-index:1;
+  border-radius:50%;
+  /**border-radius:0 0 5px 5px;**/
+  /**box-shadow:-1px 0 0 rgba(255,255,255,0.8) inset,0 0 5px #ccc inset,0 0 3px rgba(0,0,0,0.2);**/
+  /**background:linear-gradient(to bottom,#eee 0%,#fff 100%)**/
+}
+
+.red {
+  background-color: red;
+}
+
+.orange {
+background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.indigo {
+  background-color: indigo;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.pink {
+  background-color: pink;
+}
+
+
+.playing {
+  transform: scale(.99);
+  /**border-color: #ffc600;**/
+  box-shadow:-1px 0 0 rgba(255,255,255,0.8) inset,0 0 8px #ccc inset,0 0 5px rgba(0,0,0,0.2);
+
+}
+
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #ffc600;
+  display:  none;
+}
