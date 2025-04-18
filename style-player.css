@@ -33,6 +33,11 @@ header {
   /**background:linear-gradient(to bottom,#eee 0%,#fff 100%)**/
 }
 
+.key:focus-visible, .key:focus, .key:active, .key:hover {
+  border: 3px solid blue;
+  box-shadow: 10px 5px 5px black;
+}
+
 .red {
   background-color: red;
 }
